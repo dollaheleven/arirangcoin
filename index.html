@@ -12,14 +12,11 @@ font-family:Arial, sans-serif;
 background:linear-gradient(180deg,#050510,#120a2a);
 color:white;
 text-align:center;
-overflow-x:hidden;
 }
 
-/* Glow Title */
 h1{
 font-size:80px;
 color:#d8b4fe;
-margin:0;
 animation:glow 2s infinite alternate;
 }
 
@@ -28,13 +25,6 @@ from{ text-shadow:0 0 10px #a855f7;}
 to{ text-shadow:0 0 40px #ec4899;}
 }
 
-.tagline{
-font-size:22px;
-opacity:.85;
-margin-top:10px;
-}
-
-/* CTA Button */
 .cta{
 background:linear-gradient(90deg,#a855f7,#ec4899);
 border:none;
@@ -42,48 +32,51 @@ padding:20px 50px;
 font-size:22px;
 border-radius:14px;
 cursor:pointer;
-margin-top:25px;
+margin-top:20px;
 }
 
-/* Cards */
 .section{
-padding:70px 20px;
+padding:60px 20px;
 max-width:900px;
 margin:auto;
 }
 
 .card{
 background:#0f0f1f;
-padding:30px;
+padding:25px;
 border-radius:16px;
 margin:20px 0;
-box-shadow:0 0 30px rgba(168,85,247,.15);
+box-shadow:0 0 25px rgba(168,85,247,.2);
 }
 
-/* Banner */
-.banner{
-color:#22c55e;
-font-weight:bold;
-margin-top:15px;
-}
-
-/* Countdown */
 #countdown{
-font-size:26px;
-margin-top:20px;
+font-size:24px;
 color:#facc15;
+margin-top:10px;
 }
 
-/* Energy Meter */
-.energy{
-font-size:20px;
+.feed{
+text-align:left;
+font-size:14px;
+max-height:150px;
+overflow:hidden;
+}
+
+.leaderboard{
+text-align:left;
+}
+
+input{
+padding:10px;
+border-radius:8px;
+border:none;
 margin-top:10px;
-color:#38bdf8;
+width:80%;
 }
 
 footer{
 opacity:.6;
-padding:40px;
+padding:30px;
 }
 
 </style>
@@ -92,75 +85,80 @@ padding:40px;
 <body>
 
 <!-- HERO -->
-<section class="section">
-
+<div class="section">
 <h1>ARIRANG</h1>
-
-<p class="tagline">
-The Global Fan Energy Coin 🚀
-</p>
-
-<p class="banner">
-🔥 Fans move culture. Culture moves markets.
-</p>
+<p>The Global Fan Energy Coin 🚀</p>
 
 <button class="cta" onclick="window.open('https://moonshot.com/HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon?ref=makM3z')">
 🚀 Buy Now
 </button>
 
-<p style="margin-top:20px; font-size:14px;">
+<p>
 Contract: <span id="contract">HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon</span>
 <button onclick="copyContract()">Copy</button>
 </p>
 
 <div id="countdown"></div>
-
-</section>
-
-<!-- ENERGY SECTION -->
-<section class="section">
-
-<div class="card">
-<h2>Fan Energy Meter</h2>
-<p class="energy">Energy Rising ⚡⚡⚡</p>
-<p>
-When fans coordinate, anything trends.
-This is that energy — on-chain.
-</p>
 </div>
 
+<!-- LIVE ACTIVITY -->
+<div class="section">
 <div class="card">
-<h2>Why ARIRANG?</h2>
-<p>
-Built for the internet generation that knows how to
-coordinate, amplify, and go viral.
-</p>
-<p>
-No insiders. Just momentum.
-</p>
+<h2>Live Activity</h2>
+<div class="feed" id="feed"></div>
+</div>
 </div>
 
+<!-- ENERGY -->
+<div class="section">
 <div class="card">
-<h2>Live Stats</h2>
-<p>Holders: Growing Fast</p>
-<p>Volume: Increasing</p>
-<p>Status: Early 🚀</p>
+<h2>Fan Energy Meter ⚡</h2>
+<p id="energy">Energy Rising...</p>
+</div>
 </div>
 
+<!-- MEME GENERATOR -->
+<div class="section">
 <div class="card">
-<h2>How to Buy</h2>
-<p>1. Get a wallet</p>
-<p>2. Fund it</p>
-<p>3. Click Buy</p>
-<p>4. Join early</p>
+<h2>Create Your Meme</h2>
+
+<input id="memeText" placeholder="Type your meme text..." />
+<br><br>
+<button onclick="generateMeme()">Generate Meme</button>
+
+<p id="memeOutput" style="margin-top:20px;"></p>
+
+</div>
 </div>
 
-</section>
+<!-- LEADERBOARD -->
+<div class="section">
+<div class="card leaderboard">
+<h2>Top Fans</h2>
+<p>🔥 @CryptoFan01</p>
+<p>🔥 @MoonRaider</p>
+<p>🔥 @ArirangWhale</p>
+<p>🔥 @EarlyHolder</p>
+</div>
+</div>
+
+<!-- CHART -->
+<div class="section">
+<div class="card">
+<h2>Chart</h2>
+
+<iframe 
+src="https://dexscreener.com" 
+width="100%" 
+height="400" 
+style="border:none; border-radius:12px;">
+</iframe>
+
+</div>
+</div>
 
 <footer>
-<p>
-Community-owned. No official affiliations. Pure meme energy.
-</p>
+<p>Community-owned. No affiliation. Pure meme energy.</p>
 </footer>
 
 <script>
@@ -172,21 +170,50 @@ navigator.clipboard.writeText(text);
 alert("Copied!");
 }
 
-// Countdown to a hype date
+// Countdown
 const targetDate = new Date("March 20, 2026 12:00:00").getTime();
-
-const timer = setInterval(function(){
+setInterval(function(){
 const now = new Date().getTime();
-const distance = targetDate - now;
+const d = targetDate - now;
 
-const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-const seconds = Math.floor((distance % (1000*60))/1000);
+const h = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+const m = Math.floor((d%(1000*60*60))/(1000*60));
+const s = Math.floor((d%(1000*60))/1000);
 
 document.getElementById("countdown").innerHTML =
-"Next Wave In: " + hours + "h " + minutes + "m " + seconds + "s";
+"Next Wave In: " + h + "h " + m + "m " + s + "s";
 
 },1000);
+
+// Fake live feed
+const feedMessages = [
+"🚀 Someone just bought ARIRANG",
+"🔥 New holder joined",
+"💰 Big buy detected",
+"⚡ Energy rising",
+"📈 Momentum building"
+];
+
+setInterval(function(){
+const msg = feedMessages[Math.floor(Math.random()*feedMessages.length)];
+const el = document.getElementById("feed");
+el.innerHTML = "<p>"+msg+"</p>" + el.innerHTML;
+},2000);
+
+// Meme generator
+function generateMeme(){
+const text = document.getElementById("memeText").value;
+document.getElementById("memeOutput").innerText =
+"🚀 " + text + " 🚀";
+}
+
+// Energy animation
+let level = 0;
+setInterval(function(){
+level++;
+document.getElementById("energy").innerText =
+"Energy Level: " + level;
+},1500);
 
 </script>
 
