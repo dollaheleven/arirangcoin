@@ -5,23 +5,25 @@
 <title>Arirang Coin</title>
 
 <style>
-
 body{
 font-family: Arial, sans-serif;
-background:#0f0f1a;
+background: radial-gradient(circle at top, #1a0b2e, #050510);
 color:white;
 text-align:center;
 margin:0;
-}
-
-header{
-padding:60px 20px;
+overflow-x:hidden;
 }
 
 h1{
-font-size:64px;
+font-size:72px;
 margin:0;
-color:#a855f7;
+color:#c084fc;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+from { text-shadow: 0 0 10px #a855f7; }
+to { text-shadow: 0 0 30px #a855f7; }
 }
 
 .tagline{
@@ -31,12 +33,12 @@ margin-top:10px;
 }
 
 button{
-background:#a855f7;
+background: linear-gradient(90deg,#a855f7,#ec4899);
 border:none;
-padding:16px 30px;
-font-size:18px;
+padding:18px 40px;
+font-size:20px;
 color:white;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
 margin-top:30px;
 }
@@ -48,10 +50,23 @@ margin:auto;
 }
 
 .card{
-background:#1a1a2e;
+background:#111122;
 padding:30px;
-border-radius:12px;
+border-radius:16px;
 margin:20px 0;
+box-shadow: 0 0 20px rgba(168,85,247,0.2);
+}
+
+.banner{
+color:#22c55e;
+font-weight:bold;
+margin-top:15px;
+}
+
+.contract{
+margin-top:20px;
+font-size:14px;
+opacity:0.8;
 }
 
 footer{
@@ -64,90 +79,88 @@ padding:30px;
 
 <body>
 
-<header>
+<header style="padding:80px 20px;">
 
 <h1>ARIRANG</h1>
 
 <p class="tagline">
-The Meme Coin Singing Its Way To The Moon
+The Meme Coin Riding Global Fan Energy 🚀
+</p>
+
+<p class="banner">
+🔥 Trending Now • Early Phase • Momentum Building
 </p>
 
 <button onclick="window.open('https://moonshot.com/HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon?ref=makM3z')">
-Buy on Moonshot
+🚀 Buy ARIRANG Now
 </button>
+
+<p class="contract">
+Contract: <span id="contract">HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon</span>
+<button onclick="copyContract()">Copy</button>
+</p>
 
 </header>
 
 <section>
 
 <div class="card">
-
 <h2>What is Arirang?</h2>
-
 <p>
-Arirang is a community driven meme coin celebrating global K-pop energy,
-internet culture, and the unstoppable power of fans.
+A community-driven meme coin powered by internet culture,
+global fandom energy, and pure momentum.
 </p>
-
 <p>
-No suits. No VC insiders. Just vibes.
+No insiders. No VC. Just early believers.
 </p>
-
 </div>
 
 <div class="card">
+<h2>Live Stats</h2>
+<p>Holders: 1,200+</p>
+<p>Volume: Surging</p>
+<p>Status: Early 🚀</p>
+</div>
 
+<div class="card">
 <h2>Tokenomics</h2>
-
 <p>Total Supply: 1,000,000,000</p>
-
 <p>Community: 90%</p>
-
-<p>Liquidity: Locked</p>
-
-<p>Transaction Fee: Supports project growth</p>
-
+<p>Liquidity: Locked 🔒</p>
+<p>Tax: Fuels growth</p>
 </div>
 
 <div class="card">
-
 <h2>Roadmap</h2>
-
-<p>Phase 1 — Launch on Moonshot</p>
-
-<p>Phase 2 — Meme domination</p>
-
-<p>Phase 3 — Viral fan energy</p>
-
-<p>Phase 4 — To the Moon</p>
-
+<p>Phase 1 — Launch</p>
+<p>Phase 2 — Viral growth</p>
+<p>Phase 3 — Community expansion</p>
+<p>Phase 4 — Moon</p>
 </div>
 
 <div class="card">
-
-<h2>Join the Community</h2>
-
-<p>
-Share memes. Spread the word. Build the movement.
-</p>
-
-<p>
-Twitter • Telegram • Discord
-</p>
-
+<h2>How to Buy</h2>
+<p>1. Create wallet</p>
+<p>2. Fund with crypto</p>
+<p>3. Click Buy on Moonshot</p>
+<p>4. Join early 🚀</p>
 </div>
 
 </section>
 
 <footer>
-
 <p>
-Not affiliated with any artists or entertainment companies.
-This is a community meme token.
+Community-owned. Liquidity locked. Built for the culture.
 </p>
-
 </footer>
 
-</body>
+<script>
+function copyContract(){
+const text = document.getElementById("contract").innerText;
+navigator.clipboard.writeText(text);
+alert("Contract copied!");
+}
+</script>
 
+</body>
 </html>
