@@ -2,76 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Arirang Coin</title>
+<title>ARIRANG</title>
 
 <style>
+
 body{
-font-family: Arial, sans-serif;
-background: radial-gradient(circle at top, #1a0b2e, #050510);
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(180deg,#050510,#120a2a);
 color:white;
 text-align:center;
-margin:0;
 overflow-x:hidden;
 }
 
+/* Glow Title */
 h1{
-font-size:72px;
+font-size:80px;
+color:#d8b4fe;
 margin:0;
-color:#c084fc;
-animation: glow 2s infinite alternate;
+animation:glow 2s infinite alternate;
 }
 
-@keyframes glow {
-from { text-shadow: 0 0 10px #a855f7; }
-to { text-shadow: 0 0 30px #a855f7; }
+@keyframes glow{
+from{ text-shadow:0 0 10px #a855f7;}
+to{ text-shadow:0 0 40px #ec4899;}
 }
 
 .tagline{
 font-size:22px;
-opacity:0.8;
+opacity:.85;
 margin-top:10px;
 }
 
-button{
-background: linear-gradient(90deg,#a855f7,#ec4899);
+/* CTA Button */
+.cta{
+background:linear-gradient(90deg,#a855f7,#ec4899);
 border:none;
-padding:18px 40px;
-font-size:20px;
-color:white;
-border-radius:12px;
+padding:20px 50px;
+font-size:22px;
+border-radius:14px;
 cursor:pointer;
-margin-top:30px;
+margin-top:25px;
 }
 
-section{
-padding:60px 20px;
+/* Cards */
+.section{
+padding:70px 20px;
 max-width:900px;
 margin:auto;
 }
 
 .card{
-background:#111122;
+background:#0f0f1f;
 padding:30px;
 border-radius:16px;
 margin:20px 0;
-box-shadow: 0 0 20px rgba(168,85,247,0.2);
+box-shadow:0 0 30px rgba(168,85,247,.15);
 }
 
+/* Banner */
 .banner{
 color:#22c55e;
 font-weight:bold;
 margin-top:15px;
 }
 
-.contract{
+/* Countdown */
+#countdown{
+font-size:26px;
 margin-top:20px;
-font-size:14px;
-opacity:0.8;
+color:#facc15;
+}
+
+/* Energy Meter */
+.energy{
+font-size:20px;
+margin-top:10px;
+color:#38bdf8;
 }
 
 footer{
 opacity:.6;
-padding:30px;
+padding:40px;
 }
 
 </style>
@@ -79,87 +91,103 @@ padding:30px;
 
 <body>
 
-<header style="padding:80px 20px;">
+<!-- HERO -->
+<section class="section">
 
 <h1>ARIRANG</h1>
 
 <p class="tagline">
-The Meme Coin Riding Global Fan Energy 🚀
+The Global Fan Energy Coin 🚀
 </p>
 
 <p class="banner">
-🔥 Trending Now • Early Phase • Momentum Building
+🔥 Fans move culture. Culture moves markets.
 </p>
 
-<button onclick="window.open('https://moonshot.com/HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon?ref=makM3z')">
-🚀 Buy ARIRANG Now
+<button class="cta" onclick="window.open('https://moonshot.com/HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon?ref=makM3z')">
+🚀 Buy Now
 </button>
 
-<p class="contract">
+<p style="margin-top:20px; font-size:14px;">
 Contract: <span id="contract">HpbKxKKmDVRkRqzDoxVE9yaDAFhHZjCJoBxU6cYHmoon</span>
 <button onclick="copyContract()">Copy</button>
 </p>
 
-</header>
+<div id="countdown"></div>
 
-<section>
+</section>
+
+<!-- ENERGY SECTION -->
+<section class="section">
 
 <div class="card">
-<h2>What is Arirang?</h2>
+<h2>Fan Energy Meter</h2>
+<p class="energy">Energy Rising ⚡⚡⚡</p>
 <p>
-A community-driven meme coin powered by internet culture,
-global fandom energy, and pure momentum.
+When fans coordinate, anything trends.
+This is that energy — on-chain.
+</p>
+</div>
+
+<div class="card">
+<h2>Why ARIRANG?</h2>
+<p>
+Built for the internet generation that knows how to
+coordinate, amplify, and go viral.
 </p>
 <p>
-No insiders. No VC. Just early believers.
+No insiders. Just momentum.
 </p>
 </div>
 
 <div class="card">
 <h2>Live Stats</h2>
-<p>Holders: 1,200+</p>
-<p>Volume: Surging</p>
+<p>Holders: Growing Fast</p>
+<p>Volume: Increasing</p>
 <p>Status: Early 🚀</p>
 </div>
 
 <div class="card">
-<h2>Tokenomics</h2>
-<p>Total Supply: 1,000,000,000</p>
-<p>Community: 90%</p>
-<p>Liquidity: Locked 🔒</p>
-<p>Tax: Fuels growth</p>
-</div>
-
-<div class="card">
-<h2>Roadmap</h2>
-<p>Phase 1 — Launch</p>
-<p>Phase 2 — Viral growth</p>
-<p>Phase 3 — Community expansion</p>
-<p>Phase 4 — Moon</p>
-</div>
-
-<div class="card">
 <h2>How to Buy</h2>
-<p>1. Create wallet</p>
-<p>2. Fund with crypto</p>
-<p>3. Click Buy on Moonshot</p>
-<p>4. Join early 🚀</p>
+<p>1. Get a wallet</p>
+<p>2. Fund it</p>
+<p>3. Click Buy</p>
+<p>4. Join early</p>
 </div>
 
 </section>
 
 <footer>
 <p>
-Community-owned. Liquidity locked. Built for the culture.
+Community-owned. No official affiliations. Pure meme energy.
 </p>
 </footer>
 
 <script>
+
+// Copy contract
 function copyContract(){
-const text = document.getElementById("contract").innerText;
+const text=document.getElementById("contract").innerText;
 navigator.clipboard.writeText(text);
-alert("Contract copied!");
+alert("Copied!");
 }
+
+// Countdown to a hype date
+const targetDate = new Date("March 20, 2026 12:00:00").getTime();
+
+const timer = setInterval(function(){
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+const seconds = Math.floor((distance % (1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+"Next Wave In: " + hours + "h " + minutes + "m " + seconds + "s";
+
+},1000);
+
 </script>
 
 </body>
